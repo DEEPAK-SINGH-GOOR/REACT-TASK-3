@@ -1,4 +1,4 @@
-// import { useState } from "react";
+
 import "./Css.css"
 
 const AddProduct = () => {
@@ -33,7 +33,6 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
       e.preventDefault()
-      // make api call to create user
       let user = {
           email: email,
           password: password,

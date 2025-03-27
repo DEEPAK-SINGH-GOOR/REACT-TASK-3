@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct, searchProduct, sortProduct } from "../redux/productSlice";
-import "./Product.css"; // Import CSS file
+import "./Product.css"; 
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -26,23 +26,18 @@ const Product = () => {
 
   return (
     <div>
-      {/* Search Input */}
       <input
         type="text"
         placeholder="Search products..."
         value={searchQuery}
         onChange={handleSearch}
         className="search-input"
-      />
-
-      {/* Sort Dropdown */}
+      />   
       <select onChange={handleSort} className="sort-dropdown">
         <option value="">Sort By</option>
         <option value="title">Name</option>
         <option value="price">Price</option>
       </select>
-
-      {/* Product List */}
       <div className="product-container">
         {filteredProducts.map((ele) => (
           <div key={ele.id} className="product-card">

@@ -14,7 +14,7 @@ const productSlice = createSlice({
   name: "product",
   initialState: {
     products: [],
-    filteredProducts: [], // Stores filtered/sorted products
+    filteredProducts: [],
     error: null,
     loading: false,
   },
@@ -26,7 +26,7 @@ const productSlice = createSlice({
       );
     },
     sortProduct: (state, action) => {
-      const sortBy = action.payload; // 'price' or 'title'
+      const sortBy = action.payload;
       state.filteredProducts = [...state.filteredProducts].sort((a, b) =>
         sortBy === "price" ? a.price - b.price : a.title.localeCompare(b.title)
       );
@@ -41,7 +41,7 @@ const productSlice = createSlice({
       .addCase(getProduct.fulfilled, (state, action) => {
         state.loading = false;
         state.products = action.payload;
-        state.filteredProducts = action.payload; // Initialize filtered products
+        state.filteredProducts = action.payload;
       })
       .addCase(getProduct.rejected, (state, action) => {
         state.loading = false;
